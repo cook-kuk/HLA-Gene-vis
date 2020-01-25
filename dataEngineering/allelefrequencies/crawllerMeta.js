@@ -2,7 +2,8 @@ const Crawler = require("crawler");
 const fs = require("fs");
 
 const meta = process.argv[2]; // country region ethnic
-console.log(meta);
+console.log(`[${meta}] crawlling meta info`);
+console.log();
 
 const c = new Crawler({
   maxConnections: 10,
@@ -22,7 +23,11 @@ const c = new Crawler({
         }
       });
 
-      fs.writeFileSync(`./out/${meta}.json`, JSON.stringify(list));
+      if (!fs.existsSync("./out/meta")) {
+        fs.mkdirSync("./out/meta");
+      }
+
+      fs.writeFileSync(`./out/meta/${meta}.json`, JSON.stringify(list));
     }
     done();
   }
