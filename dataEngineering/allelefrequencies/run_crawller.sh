@@ -2,6 +2,23 @@
  
 META="$1" # country, region, ethnic, sample_year
 
-node crawllerMeta.js $META
-node crawllerAllele.js $META
-node mergeAllele.js $META
+
+if [ "$META" = "country" ] || [ "$META" = "region" ] || [ "$META" = "ethnic" ] || [ "$META" = "sample_year" ] ; then
+  
+  echo "[$META]"
+
+  echo "Crawlling Meta"
+  node crawllerMeta.js $META
+
+  echo "Crawlling Allele"
+  node crawllerAllele.js $META
+
+  echo "merge Allele data"
+  node mergeAllele.js $META
+
+  echo "out data: ./out/$META.json"
+else
+  echo "[Error] meta input is country, region, ethnic, sample_yea only..."
+fi
+
+

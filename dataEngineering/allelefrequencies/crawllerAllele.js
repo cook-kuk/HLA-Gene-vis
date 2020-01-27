@@ -3,8 +3,6 @@ const fs = require("fs");
 
 // country region ethnic
 const meta = process.argv[2];
-console.log(`[${meta}] crawlling allele`);
-console.log();
 
 const existOutDir = fs.existsSync("./out");
 if (!existOutDir) {

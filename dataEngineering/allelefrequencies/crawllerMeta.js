@@ -2,8 +2,6 @@ const Crawler = require("crawler");
 const fs = require("fs");
 
 const meta = process.argv[2]; // country region ethnic
-console.log(`[${meta}] crawlling meta info`);
-console.log();
 
 const c = new Crawler({
   maxConnections: 10,
