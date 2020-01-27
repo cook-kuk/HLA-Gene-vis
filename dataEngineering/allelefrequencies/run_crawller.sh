@@ -1,5 +1,7 @@
 #!/bin/sh
  
+RED='\033[0;31m'
+NC='\033[0m' # No Color
 META="$1" # country, region, ethnic, sample_year
 
 
@@ -17,8 +19,10 @@ if [ "$META" = "country" ] || [ "$META" = "region" ] || [ "$META" = "ethnic" ] |
   node mergeAllele.js $META
 
   echo "out data: ./out/$META.json"
+  prettyjson ./out/$META.json | head
 else
-  echo "[Error] meta input is country, region, ethnic, sample_yea only..."
+  echo "$RED[ Error ]"
+  echo "meta input is country, region, ethnic, sample_yea only... $NC"
 fi
 
 
