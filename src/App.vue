@@ -33,7 +33,7 @@
         v-icon mdi-open-in-new
 
     v-content
-      HelloWorld
+      router-view
 </template>
 
 <script lang="ts">
