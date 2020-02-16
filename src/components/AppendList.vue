@@ -1,6 +1,10 @@
 <template lang="pug">
-  .AppendList
-    .row
+  .appendList
+    .appendTable
+      .appendList-row
+        .appendList-col
+      .appendList-row
+        .appendList-col
 </template>
 
 <script>
