@@ -5,11 +5,12 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    mainColor: '#0F4C81',
   },
-  mutations: {
+  getters: {
+    mainColor: (state) => state.mainColor,
   },
-  actions: {
-  },
-  modules: {
-  },
+  mutations: {},
+  actions: {},
+  modules: {},
 });
