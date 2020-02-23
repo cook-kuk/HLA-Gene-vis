@@ -1,13 +1,21 @@
 <template lang="pug">
   .home
-    .left-side-bar
-    .main
-    .right-side-bar
+    .header
+    .content
+      .left-side-bar.test
+        append-list.test
+      .main
+      .right-side-bar
 </template>
 
 <script>
+import AppendList from '../components/AppendList.vue';
+
 export default {
   name: 'home',
+  components: {
+    'append-list': AppendList,
+  },
 };
 </script>
 
@@ -16,29 +24,40 @@ export default {
   border: solid 1px gray;
 }
 
+$hearder-height: 64px;
+
 .home {
   width: 100%;
   height: 100%;
-  background-color: rebeccapurple;
   display: flex;
+  flex-direction: column;
 }
 
-.home .left-side-bar {
-  width: 320px;
-  height: 100%;
-  background-color: antiquewhite;
+.home .header {
+  width: 100%;
+  height: $hearder-height;
+  background-color: royalblue;
 }
 
-.home .main {
-  height: 100%;
+.home .content {
+  width: 100%;
   flex: 1;
-  background-color: aliceblue;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.home .right-side-bar {
+.home .content .left-side-bar {
+  width: 480px;
+  height: 100%;
+}
+
+.main {
+  flex: 2;
+  background-color: beige;
+}
+
+.home .content .right-side-bar {
   width: 320px;
   height: 100%;
-  background-color: aquamarine;
 }
-
 </style>
